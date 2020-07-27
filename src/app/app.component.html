@@ -1,0 +1,29 @@
+<ng2-slim-loading-bar color="blue"></ng2-slim-loading-bar>
+<nav class="navbar navbar-expand-sm bg-light">
+  <div class="container-fluid">
+    <ul class="navbar-nav">
+      <li *ngIf="userlogin==true" class="nav-item">
+        <a routerLink="product/create" class="nav-link" routerLinkActive="active">
+          Create Product
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="products" class="nav-link" routerLinkActive="active">
+          Products
+        </a>
+        <li class="nav-item" id="login">
+          <a *ngIf="userlogin==false" routerLink="login" class="nav-link" routerLinkActive="active">
+            Login
+          </a>
+          <a *ngIf="userlogin==true" (click) = "Logout()" class="nav-link" routerLinkActive="active">
+            User: {{user}} Logout
+          </a>
+      </li>
+    
+    </ul>
+  </div> 
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
