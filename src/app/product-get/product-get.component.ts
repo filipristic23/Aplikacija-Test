@@ -12,7 +12,7 @@ export class ProductGetComponent implements OnInit {
   user: string;
   userlogin: boolean;
   constructor(private ps: ProductsService) { 
-    if (localStorage.getItem('UserMail') !== null) {
+    if (localStorage.getItem('UserMail') !== null) { 
       this.user = localStorage.getItem('UserMail');
       this.userlogin = true;
     }

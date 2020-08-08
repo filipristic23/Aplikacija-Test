@@ -1,19 +1,14 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'; 
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProductsService {
+export class UserService {
 
+  uri = 'http://localhost:5000/users'; 
 
-  
-
-  // njegov uri -> uri = 'http://localhost:63760/api/Products';
-  uri = 'http://localhost:5000/api/v1/employees'; 
-
-  constructor(private http: HttpClient) { } 
-
+  constructor(private http: HttpClient) { }
   addProduct(name, email, password) {
     console.log('Pozvao sam servis jeeesssss');
     const obj = {
@@ -33,27 +28,28 @@ export class ProductsService {
            console.log('Pozvao sam servis2 jeeesssss');
             return this.http.get(`${this.uri}`);
   }
-  editProduct(iduser) {
+  editProduct(id) {
     return this
             .http
-            .get(`${this.uri}/${iduser}`);
+            .get(`${this.uri}/${id}`);
   }
-  updateProduct(name, email, password, idadmin) {
+  updateProduct(name, email, password, id) {
     const obj = {
-      idadmin,
+      id,
       name,
       email,
       password
     };
     this
       .http
-      .put(`${this.uri}/${idadmin}`, obj)
+      .put(`${this.uri}/${id}`, obj)
       .subscribe(res => console.log('Done'));
   }
-  deleteProduct(idadmin) {
-    console.log(idadmin);
+  deleteProduct(id) {
+    console.log(id);
     return this
               .http
-              .delete(`${this.uri}/${idadmin}`);
+              .delete(`${this.uri}/${id}`);
   }
 }
+

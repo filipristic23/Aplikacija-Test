@@ -14,6 +14,8 @@ import { LoginComponent } from './login/login.component';
 import { LoginService } from './login.service';
 import { RegisterComponent } from './register/register.component';
 import { RegisterService } from './register.service';
+import { UsersComponent } from './users/users.component';
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { RegisterService } from './register.service';
     ProductGetComponent,
     ProductEditComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,8 @@ import { RegisterService } from './register.service';
   providers: [
   ProductsService,
   LoginService,
-  RegisterService
+  RegisterService,
+  AuthGuard
 ],
   bootstrap: [AppComponent]
 })

@@ -11,10 +11,10 @@ export class LoginComponent implements OnInit {
   loginMsg = '';
   constructor(private ls: LoginService) { }
 
-  login(email, password){
-    this.ls.checkLogin(email, password);
+  login(name, email, password){
+    this.ls.checkLogin(name, email, password);
 
-    if (localStorage.getItem('log') == 'Email does not exits') {
+    if (localStorage.getItem('log') !== 'login sucessfull' ) {
       this.loginx = false;
       this.loginMsg = 'Email or password is wrong.'
     }

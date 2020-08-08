@@ -11,8 +11,8 @@ export class RegisterComponent implements OnInit {
   constructor(private rs: RegisterService) { }
 
 
-  register(email, password){
-    this.rs.addUser(email, password);
+  register(name, email, password){
+    this.rs.addUser(name, email, password);
  }
 
   ngOnInit() {

@@ -11,10 +11,11 @@ export class LoginService {
 
   constructor(private http: HttpClient) { }
 
-  checkLogin(email, password) {
+  checkLogin(name, email, password) {
     var ressult = '';
     console.log('Pozvao sam servis jeeesssss');
     const obj = {
+      name,
       email,
       password
     };
@@ -22,7 +23,7 @@ export class LoginService {
     this.http.post(`${this.uri}`, obj).subscribe(data => this.f(data['success']));
   }
 
-  f(params:string) {
+  f(params:string) { 
     this.msg=params;
     window.localStorage.setItem('log', params);
   }
