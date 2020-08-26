@@ -4,6 +4,7 @@
       <label for="exampleInputEmail1">Username</label>
       <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter username" #name>
     </div>
+
     <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" #email>
@@ -13,9 +14,15 @@
         <label for="exampleInputPassword1">Password</label>
         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" #password>
       </div>
+      <div class="form-group">
+        <label for="">Come from</label>
+        <select class="form-control" #city>
+          <option *ngFor="let product of products" [value]='product.idcity'>{{product.cityname}}</option>
+        </select>
+      </div>
       <div class="form-check">
       
         <a routerLink="../login">Login</a> 
       </div>
       
-      <button (click)="register(name.value, email.value, password.value)" type="submit" class="btn btn-primary">Submit</button>
+      <button (click)="register(name.value, email.value, password.value, city.value)" type="submit" class="btn btn-primary">Submit</button>

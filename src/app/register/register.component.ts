@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RegisterService } from '../register.service';
+import  RegisterGet  from '../Register-get';
 
 @Component({
   selector: 'app-register',
@@ -8,14 +9,21 @@ import { RegisterService } from '../register.service';
 })
 export class RegisterComponent implements OnInit {
 
+  products: RegisterGet[];  
+
   constructor(private rs: RegisterService) { }
 
 
-  register(name, email, password){
-    this.rs.addUser(name, email, password);
+  register(name, email, password, city){ 
+    this.rs.addUser(name, email, password, city);
  }
 
   ngOnInit() {
+    this.rs
+    .getProducts()
+    .subscribe((data: RegisterGet[]) => { 
+      this.products = data;
+    });
   }
 
 }

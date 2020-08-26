@@ -16,6 +16,7 @@ import { RegisterComponent } from './register/register.component';
 import { RegisterService } from './register.service';
 import { UsersComponent } from './users/users.component';
 import { AuthGuard } from './guards/auth.guard';
+import { RegisterGetService } from './register-get.service';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { AuthGuard } from './guards/auth.guard';
   ProductsService,
   LoginService,
   RegisterService,
+  RegisterGetService,
   AuthGuard
 ],
   bootstrap: [AppComponent]

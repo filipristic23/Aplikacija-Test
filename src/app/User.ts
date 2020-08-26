@@ -3,4 +3,5 @@ export default class User {
     name: string;//bilo veliko P
     email: string;
     password: number;
+    cityname: string;
   } 
