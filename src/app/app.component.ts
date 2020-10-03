@@ -6,6 +6,7 @@ import { NavigationCancel,
         NavigationError,
         NavigationStart,
         Router } from '@angular/router';
+import {LoginService} from '../app/login.service';        
 
 @Component({
   selector: 'app-root',
@@ -16,14 +17,14 @@ export class AppComponent {
   title = 'angular8tutorial';
   user: string;
   userlogin: boolean;
-  constructor(private loadingBar: SlimLoadingBarService, private router: Router) {
+  constructor(private loadingBar: SlimLoadingBarService, private router: Router, private ls: LoginService) {
 
     this.router.events.subscribe((event: Event) => {
       this.navigationInterceptor(event);
     });
 
-    if (localStorage.getItem('UserMail') !== null) {
-      this.user = localStorage.getItem('UserMail');
+    if (localStorage.getItem('name') !== null) {
+      this.user = localStorage.getItem('name');
       this.userlogin = true;
     }
     else {
@@ -31,6 +32,10 @@ export class AppComponent {
       this.userlogin = false;
     }
   }
+ 
+ 
+
+
   private navigationInterceptor(event: Event): void {
     if (event instanceof NavigationStart) {
       this.loadingBar.start();

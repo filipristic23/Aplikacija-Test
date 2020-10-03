@@ -14,8 +14,8 @@ export class UsersComponent implements OnInit {
   userlogin: boolean;
 
   constructor(private us: UserService) { 
-    if (localStorage.getItem('UserMail') !== null) { 
-      this.user = localStorage.getItem('UserMail');
+    if (localStorage.getItem('name') !== null) { 
+      this.user = localStorage.getItem('name');
       this.userlogin = true;
     }
     else {
